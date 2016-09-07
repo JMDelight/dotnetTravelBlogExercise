@@ -1,0 +1,40 @@
+﻿@model TravelBlog.Models.Location
+
+@{ 
+    ViewData["Title"] = "Add Location";
+}
+
+<h2>Create</h2>
+<hr />
+<h4>Add a new <span class="allCaps">location</span></h4>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FunFact" class="control-label"></label>
+        <input asp-for="FunFact" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Classification" class="control-label"></label>
+        <select asp-for="Classification">
+            <option>Country</option>
+            <option>City</option>
+            <option>Geographical Feature</option>
+            <option>Disney Themed Amusement Park</option>
+        </select>
+    </div>
+
+    <div>
+        <button class="btn btn-lg btn-success">Save</button>
+    </div>
+</form>
+<p>@Html.ActionLink("Back to list", "Index")</p>

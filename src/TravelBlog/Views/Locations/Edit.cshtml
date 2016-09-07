@@ -1,0 +1,51 @@
+﻿@model TravelBlog.Models.Location
+
+@{ 
+    string[] classifications = new string[] { "Country",
+                                                "City",
+                                                "Geographical Feature",
+                                                "Disney Themed Amusement Park" };
+}
+
+<h2>Have you met my information technologist friend, Ed?  We call him <span class="allCaps">Ed It</span></h2>
+<h6><em>Get it?</em> Please, update this location.</h6>
+<form method="post">
+        <input asp-for="LocationId" type="hidden" value="@Model.LocationId" />
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" value="@Model.Name" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" value="@Model.Description" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FunFact" class="control-label"></label>
+        <input asp-for="FunFact" class="form-control" value="@Model.FunFact" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Classification" class="control-label"></label>
+        <select asp-for="Classification">
+            @foreach (var classification in classifications)
+            {
+                @if (classification == Model.Classification)
+                {
+                    <option selected>@classification</option>
+                }
+                else
+                {
+                    <option>@classification</option>
+                }
+
+            }
+        </select>
+    </div>
+
+    <div>
+        <button class="btn btn-lg btn-success">Save</button>
+    </div>
+</form>
+<p>@Html.ActionLink("Back to list", "Index")</p>

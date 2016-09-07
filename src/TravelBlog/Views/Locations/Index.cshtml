@@ -8,12 +8,15 @@
 <ul>
     @foreach (var listItem in Model)
     {
-        <li>@listItem.Name</li>
-        <ul>
-            <li>@listItem.Description</li>
-            <li>@listItem.Classification</li>
-
-        </ul>
-    
+        <li class="list-heading">
+            <span class="li-heading">@listItem.Name</span>
+            @Html.ActionLink("Details", "Details", new { id = listItem.LocationId })
+            <ul>
+                <li><strong>Description</strong>- @listItem.Description</li>
+                <li><strong>Classification</strong>- @listItem.Classification</li>
+            </ul>
+        </li>
     }
 </ul>
+
+<p>@Html.ActionLink("Add NEW LOCATION", "Create")</p>

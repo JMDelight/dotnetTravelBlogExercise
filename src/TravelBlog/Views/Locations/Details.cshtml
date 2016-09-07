@@ -1,0 +1,14 @@
+﻿@model TravelBlog.Models.Location
+
+<h2>@Model.Name</h2>
+
+<h4>@Model.Classification</h4>
+
+<p>@Model.Description</p>
+
+<blockquote>@Model.FunFact</blockquote>
+
+<p><a href="@Url.Action("Delete", new { id = Model.LocationId })">Would you like to delete this location?</a></p>
+<p><a href="@Url.Action("Edit", new { id = Model.LocationId })">Or maybe you'd just like to edit it?  Update it a little?  Maybe?  Just a litte bit?  New fun fact?  Total overhaul?  Hmmm?</a></p>
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
