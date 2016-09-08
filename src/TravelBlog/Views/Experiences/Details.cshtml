@@ -11,9 +11,10 @@
     </li>
 }
 
+<p><a href="@Url.Action("AttachPerson", new { id = Model["experience"].ExperienceId })">And you were there!  And your were there!  And you were there...</a></p>
 
-<p><a href="@Url.Action("Edit", new { id = Model["experience"].ExperienceId })">Or maybe you'd just like to edit it?  Update it a little?  Maybe?  Just a litte bit?  New fun fact?  Total overhaul?  Hmmm?</a></p>
-<p><a href="@Url.Action("Delete", new { id = Model["experience"].ExperienceId })">Remove this person FOREVER. (This cannot be undone)</a></p>
+<p><a href="@Url.Action("Edit", new { id = Model["experience"].ExperienceId })">Reframe this experience.  (ex. after 10 years of brooding about your high school breakup, you've finally come to the realization that <em>it made you a stronger person</em>).  Good job.</a></p>
+<p><a href="@Url.Action("Delete", new { id = Model["experience"].ExperienceId })">Repress this experience. (This cannot be undone)</a></p>
 
 <hr />
 <p>@Html.ActionLink("Back to the root of experience.  The very essence of perception.", "Index")</p>

@@ -8,6 +8,16 @@ namespace TravelBlog.Models
 {
     public class ExperiencePerson
     {
+        public ExperiencePerson()
+        {
+
+        }
+        public ExperiencePerson(int experienceId, int personId)
+        {
+            this.ExperienceId = experienceId;
+            this.PersonId = personId;
+        }
+
         [Key]
         public int ExperiencePersonId { get; set; }
 

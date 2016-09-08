@@ -74,6 +74,49 @@ namespace TravelBlog.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult AttachPersonSave(int id, Experience experience)
+        {
+            ExperiencePerson newExperiencePerson = new ExperiencePerson(experience.ExperienceId, id);
+            db.ExperiencesPeople.Add(newExperiencePerson);
+            db.SaveChanges();
+            return RedirectToAction("AttachPerson", experience.ExperienceId);
+
+        }
+
+        public IActionResult AttachPerson(int id)
+        {
+            var thisExperience = db.Experiences.FirstOrDefault(experiences => experiences.ExperienceId == id);
+            ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "Name");
+            var theseExeriencesPeople = db.ExperiencesPeople.Where(b => b.ExperienceId == id).ToList();
+            var thesePeople = db.People.ToList();
+            List<Person> attachedPeople = new List<Person> ();
+            List<Person> unattachedPeople = new List<Person>();
+            foreach (var person in thesePeople)
+            {
+                Boolean isAttached = false;
+                foreach (var experiencePerson in theseExeriencesPeople)
+                {
+                    if (experiencePerson.PersonId == person.PersonId && !isAttached)
+                        //prevent extra adds with !isAttached even though theoretically unnecessary
+                    {
+                        attachedPeople.Add(person);
+                        isAttached = true;
+                    }
+                }
+                if (!isAttached)
+                {
+                    unattachedPeople.Add(person);
+                }
+            }
+            Dictionary<string, object> model = new Dictionary<string, object> { };
+            model.Add("attachedPeople", attachedPeople);
+            model.Add("unattachedPeople", unattachedPeople);
+            model["experience"] = thisExperience;
+            return View(model);
+        }
+
+        
+
         public string SendMeAString()
         {
             return "Here's your string...";
