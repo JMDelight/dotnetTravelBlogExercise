@@ -49,3 +49,29 @@ textarea {
 .allCaps {
     text-transform: uppercase;
 }
+
+.smallCaps {
+    font-variant: small-caps;
+    text-decoration: underline;
+}
+
+hr {
+    border: dashed blue;
+    padding: 3px;
+    box-shadow: 0 0 10px 1px black;
+    background-color: violet;
+}
+
+hr:hover {
+    box-shadow: 0px 0px 500px yellow;
+}
+
+#secretMessage:hover:after {
+    content: "Help me.";
+    color: black;
+}
+
+#secretMessage {
+    color: white;
+    margin-left: -80px;
+}

@@ -23,9 +23,17 @@ namespace TravelBlog.Controllers
         {
             var thisExperience = db.Experiences.FirstOrDefault(experiences => experiences.ExperienceId == id);
             var linkedLocation = db.Locations.FirstOrDefault(location => location.LocationId == thisExperience.LocationId);
+            var theseExperiencesPeople = db.ExperiencesPeople.Where(experiencePerson => experiencePerson.ExperienceId == thisExperience.ExperienceId).ToList();
+            List<Person> thesePeople = new List<Person>();
+
+            foreach ( ExperiencePerson currentExperiencePerson in theseExperiencesPeople) {
+                thesePeople.Add(db.People.FirstOrDefault(person => person.PersonId == currentExperiencePerson.PersonId));
+                System.Diagnostics.Debug.WriteLine(thesePeople.Count);
+            }
             Dictionary<string, object> model = new Dictionary<string, object> { };
             model.Add("experience", thisExperience);
             model.Add("location", linkedLocation);
+            model.Add("people", thesePeople);
             return View(model);
         }
 

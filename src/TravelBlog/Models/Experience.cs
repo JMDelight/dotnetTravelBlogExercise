@@ -12,8 +12,12 @@ namespace TravelBlog.Models
         public int ExperienceId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
         public int LocationId { get; set; }
         public virtual Location Location { get; set; }
+
+       
+
     }
 }
