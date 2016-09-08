@@ -1,0 +1,11 @@
+﻿<ul>
+    @foreach (var listItem in Model)
+    {
+        <li class="list-heading">
+            <span class="li-heading">@listItem.Title</span>
+            @Html.ActionLink("Details", "Details", new { id = listItem.ExperienceId })
+        </li>
+    }
+</ul>
+
+<p><span class="allCaps">@Html.ActionLink("Add NEW experience", "Create")</span></p>
