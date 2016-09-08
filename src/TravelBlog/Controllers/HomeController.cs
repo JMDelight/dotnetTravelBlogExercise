@@ -31,5 +31,10 @@ namespace TravelBlog.Controllers
         {
             return View();
         }
+
+        public string SendMeAString()
+        {
+            return "supercalifragilisticexpialidocious";
+        }
     }
 }

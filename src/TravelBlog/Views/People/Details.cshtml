@@ -1,0 +1,6 @@
+﻿
+<h1>@Model["person"].Name</h1>
+<h2>Location: @Model["location"].Name</h2>
+
+<p><a href="@Url.Action("Edit", new { id = Model["person"].PersonId })">Or maybe you'd just like to edit it?  Update it a little?  Maybe?  Just a litte bit?  New fun fact?  Total overhaul?  Hmmm?</a></p>
+<p><a href="@Url.Action("Delete", new { id = Model["person"].PersonId })">Remove this person FOREVER. (This cannot be undone)</a></p>
